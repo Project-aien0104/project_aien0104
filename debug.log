@@ -16,3 +16,6 @@
 [0302/000303.809:ERROR:process_reader_win.cc(123)] NtOpenThread: {拒絕存取} 程序已請求存取一物件，但未被授與存取權。 (0xc0000022)
 [0302/000303.809:ERROR:exception_snapshot_win.cc(88)] thread ID 912 not found in process
 [0302/000303.809:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
+[0302/001416.850:ERROR:process_reader_win.cc(123)] NtOpenThread: {拒絕存取} 程序已請求存取一物件，但未被授與存取權。 (0xc0000022)
+[0302/001416.850:ERROR:exception_snapshot_win.cc(88)] thread ID 12692 not found in process
+[0302/001416.850:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
