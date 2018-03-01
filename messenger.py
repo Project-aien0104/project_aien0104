@@ -58,13 +58,13 @@ def main():
 
     # 輸入查詢資料，以"查詢台北天氣"為例
     element_text_1 = driver.find_element_by_css_selector('div.notranslate')
-    element_text_1.send_keys('查詢高雄天氣')
+    element_text_1.send_keys('查詢台東天氣')
     pyautogui.press('enter')
     time.sleep(5)
     driver.get('https://www.messenger.com/'+url_list[1])
     html_dr1 = driver.page_source
     print(html_dr1)
-    time.sleep(3)
+    time.sleep(2)
     
     # 讀取台北的一周天氣
     # element_parent_1 = driver.find_element_by_css_selector('#js_1')
@@ -77,10 +77,12 @@ def main():
     # 儲存圖片-使用selenium
     driver.get(str(element_pic_1))
     time.sleep(2)
-    html_1 = driver.page_source
-    driver.get('https://www.messenger.com/'+url_list[1])  
-    print(html_1)
-    time.sleep(3)
+    load_pic_1 = driver.find_element_by_tag_name('img').get_property('src')
+    print(load_pic_1)
+    # html_1 = driver.page_source
+    # driver.get('https://www.messenger.com/'+url_list[1])  
+    # print(html_1)
+    # time.sleep(2)
 
     # 儲存圖片-使用header(未完成)
     # headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3355.0 Safari/537.36'}
@@ -90,11 +92,16 @@ def main():
     # print(html)
     # time.sleep(2)
 
-    d = bs4.BeautifulSoup(html_1,'lxml')
-    im = d.find('img').get('src')
+    # 使用bs4得到圖片網址
+    # d = bs4.BeautifulSoup(html_1,'lxml')
+    # im = d.find('img').get('src')
+    
+    # 使用selenium下載
+    im = str(load_pic_1)
     print(str(im))
     urllib.request.urlretrieve(im,'im.png')
     print('success!')
+    driver.get('https://www.messenger.com/'+url_list[1])
 
     time.sleep(1200)
 
